@@ -1,4 +1,4 @@
-import { createItem, getAllItems, updateItem } from '../services/items'
+import { createItem, getItems, updateItem } from '../services/items'
 import { showModal } from './modalReducer'
 import { setNotification, removeNotification } from './notificationReducer'
 
@@ -77,9 +77,9 @@ export const itemReducer = (state = initialState, action) => {
   return state
 }
 
-export const itemInit = () => {
+export const itemInit = (id) => {
   return async (dispatch) => {
-    const items = await getAllItems()
+    const items = await getItems(id)
     dispatch({
       type: '@items/init',
       payload: items

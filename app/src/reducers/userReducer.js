@@ -38,7 +38,7 @@ export const userLogin = (credentials) => {
       console.log('entra reducer')
       const userToSet = await loginUser(credentials)
       window.localStorage.setItem(
-        'loggedNoteAppUser', JSON.stringify(userToSet)
+        'loggedUser', JSON.stringify(userToSet)
       )
       setToken(userToSet.token)
       dispatch({
@@ -89,7 +89,7 @@ export const userRegister = (userToRegister) => {
     try {
       const userCreated = await registerUser(userToRegister)
       window.localStorage.setItem(
-        'loggedNoteAppUser', JSON.stringify(userCreated)
+        'loggedUser', JSON.stringify(userCreated)
       )
       setToken(userCreated.token)
       dispatch({
